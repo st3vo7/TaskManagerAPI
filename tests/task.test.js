@@ -38,7 +38,7 @@ test("Should get tasks for userOne", async () => {
 });
 
 test("Should not delete task for different user", async () => {
-  const response = await request(app)
+  await request(app)
     .delete(`/tasks/${taskOne._id}`)
     .set("Authorization", `Bearer ${userTwo.tokens[0].token}`)
     .send()
